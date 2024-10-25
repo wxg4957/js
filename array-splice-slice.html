@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const pets = ["개", "고양이", "곰", "말"]
+
+        // splice()는 배열의 요소를 삭제, 교체, 삽입하는 함수
+        document.write(`[pets] -> ${pets}<br>`)
+
+        pets.splice(2) // 2번 인덱스부터 끝까지 삭제
+        document.write(`[splice(2)] -> ${pets}<br>`)
+
+        pets.splice(0,1) // 0번 인덱스부터 한 개 삭제
+        document.write(`[splice(0,1)] -> ${pets}<br>`)
+        
+        document.write("<hr>")
+
+        pets.splice(0,0,"햄스터") // 0번 인덱스에 "햄스터" 삽입
+        document.write(`[splice(0,0,"햄스터")] -> ${pets}<br>`)
+        
+        pets.splice(1,1,"거북이","앵무새")
+        document.write(`[splice(1,1,"거북이","앵무새")] -> ${pets}<br>`)
+
+        document.write("<hr>")
+
+        const weeks = ["월", "화", "수", "목", "금"]
+
+        // slice()는 배열의 일부분을 추출하여 새로운 배열로 반환
+        document.write("[slice()] -> ", weeks.slice(), "<br>") // 그대로 출력
+
+        document.write("[slice(2)] -> ", weeks.slice(2), "<br>") // 2번 인덱스부터 끝까지 추출
+
+        document.write("[slice(2,4)] -> ", weeks.slice(2,4), "<br>") // 2번 인덱스부터 4번 인덱스 전까지 추출
+
+        document.write("[slice(-2)] -> ", weeks.slice(-2), "<br>") // 뒤에서 두 번째 자리부터 끝까지 추출
+
+        document.write("[slice(1,-2)] -> ", weeks.slice(1,-2), "<br>") // 1번 인덱스부터 뒤에서 두 번째 자리 전까지 추출
+
+        document.write("[weeks] -> ", weeks, "<br>")
+    </script>
+</body>
+</html>
