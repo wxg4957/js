@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <link rel="stylesheet" href="css/style.css">
+    <nav class="dropDown">
+        <ul>
+            <li class="menuItem">
+                <a href="#">메뉴1</a>
+                <ul class="subMenu">
+                    <li><a href="jQueryEffect12-3.html" class="iframeLink">4계절 풍경</a></li>
+                    <li><a href="jQueryEffect12-1.html" class="iframeLink">페이드 인아웃</a></li>
+                    <li><a href="jQueryEffect12-4.html" class="iframeLink">배너광고</a></li>
+                </ul>
+            </li>
+            <li class="menuItem">
+                <a href="#">메뉴2</a>
+                <ul class="subMenu">
+                    <li><a href="#">서브메뉴1</a></li>
+                    <li><a href="#">서브메뉴2</a></li>
+                </ul>
+            </li>
+            <li class="menuItem">
+                <a href="#">메뉴3</a>
+                <ul class="subMenu">
+                    <li><a href="#">서브메뉴3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="iframe-container">
+        <iframe id="targetIframe" src=""></iframe>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".menuItem").hover(function () {
+                $(this).children(".subMenu").stop(true, true).slideDown(200)
+            },
+                function () {
+                    $(this).children(".subMenu").stop(true, true).slideUp(200)
+                }
+            )
+
+            $(".iframeLink").click(function (event) {
+                event.preventDefault()
+                var url = $(this).attr("href")
+                $("#targetIframe").attr("src", url)
+            })
+        })
+    </script>
+</body>
+
+</html>

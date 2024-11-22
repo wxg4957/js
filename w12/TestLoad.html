@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style>
+        body {
+            font: 14px Malgun Gothic, "맑은고딕", sans-serif
+        }
+
+        .zoomBtnZone {
+            font-size: 14px
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function openTextFile() {
+            let input = document.createElement("input")
+            input.type = "file"
+            input.accept = "text/plain"
+            input.onchange = function (event) {
+                let file = event.target.files[0]
+                let reader = new FileReader()
+                reader.onload = function () {
+                    document.getElementById("output").innerText = reader.result
+                }
+                reader.readAsText(file, "utf8")
+            }
+            input.click()
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let baseFontSize = 14
+
+            function zoomInOut(event) {
+                const target = event.target
+                if (target.classList.contains("zoomOutBtn")) {
+                    if (baseFontSize <= 10) return
+                    baseFontSize -= 2
+                }
+                else if (target.classList.contains("zoomInBtn")) {
+                    if (baseFontSize >= 30) return
+                    baseFontSize += 2
+                }
+                else if (target.classList.contains("originBtn")) {
+                    baseFontSize = 14
+                }
+                document.querySelector(".fontSize").innerText = baseFontSize + "px"
+                document.getElementById("output").style.fontSize = baseFontSize + "px"
+            }
+
+            document.querySelectorAll(".zoomBtnZone button").forEach(button => {
+                button.addEventListener("click", zoomInOut)
+            })
+        })
+    </script>
+
+    <button onclick="openTextFile()">Open</button><br><br>
+    <p class="zoomBtnZone">
+        <button class="zoomOutBtn">-</button>
+        <button class="originBtn">100%</button>
+        <button class="zoomInBtn">+</button>
+    </p>
+    <hr>
+    <p class="fontSize">14px</p>
+    <div id="output">
+        ...
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        button {
+            font-family: 굴림;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            $(".button2").hide()
+
+            $(".button1").on("click", function () {
+                $(".box").slideUp(1000, "linear",
+                    function () {
+                        $(".button1").hide()
+                        $(".button2").show()
+                    }
+                )
+            })
+
+            $(".button2").on("click", function () {
+                $(".box").fadeIn(1000, "swing", function () {
+                    $(".button1").show()
+                    $(".button2").hide()
+                })
+            })
+
+            $(".button3").on("click", function () {
+                $(".box").slideToggle(1000, "linear")
+            })
+
+            $(".button4").on("click", function () {
+                $(".box").fadeTo("fast", 0.3)
+            })
+
+            $(".button5").on("click", function () {
+                $(".box").fadeTo("fast", 1.0)
+            })
+
+            $(".button1").trigger("click")
+        })
+    </script>
+
+    <p>
+        <button class="button1">slideUp</button>
+        <button class="button2">fadeIn</button>
+    </p>
+    <p>
+        <button class="button3">toggleSide</button>
+    </p>
+    <p>
+        <button class="button4">fadeTo 0.3</button>
+        <button class="button5">fadeTo 1.0</button>
+    </p>
+    <div class="box">
+        <div class="content">
+            <pre>
+                모든순간이다꽃봉우리인것을 정현종
+                나는가끔후회한다
+                그때그일이
+                노다지였을지도모르는데
+                그때그사람이
+                그때그물건이
+                노다지였을지도모르는데...
+                더열심히파고들고
+                더열심히말을걸로
+                더열심히귀기울이고
+                더열심히사랑할걸...
+                반벙어리처럼
+                귀머거리처럼
+                보내지는않았는가
+                우두커니처럼...
+                더열심히그순간을
+                사랑할것을...
+                모든순간이다
+                꽃봉오리인것을,
+                내열심에따라피어날
+                꽃봉오리인것을!
+            </pre>
+        </div>
+    </div>
+</body>
+
+</html>

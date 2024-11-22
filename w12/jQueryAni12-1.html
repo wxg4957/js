@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        .text1{
+            background-color: aqua;
+        }
+
+        .text2{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function(){
+            $(".button1").on("click", function(){
+                $(".text1").animate({
+                    marginLeft: "500px",
+                    fontSize: "50px"
+                },
+                2000, "linear", function(){
+                    alert("모션완료")
+                })
+            })
+
+            $(".button2").on("click", function(){
+                $(".text2").animate({
+                    marginLeft: "50px"
+                }, 1000)
+            })
+        })
+    </script>
+
+    <p><button class="button1">버튼1</button></p>
+    <span class="text1">500px 이동</span>
+    <p><button class="button2">버튼2</button><p>
+    <span class="text2">50px씩 이동</span>
+</body>
+</html>
